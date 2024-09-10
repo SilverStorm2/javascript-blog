@@ -1,12 +1,5 @@
 'use strict'; //pokazuje błędy, np literówka w słowie counter
 
-/*
-document.getElementById('test-button').addEventListener('click', function(){
-    const links = document.querySelectorAll('.titles a');
-    console.log('links:', links);
-  });
-*/
-
 const titleClickHandler = function(event){
   const clickedElement = this;
   console.log('Link was clicked!');
@@ -19,7 +12,7 @@ const titleClickHandler = function(event){
 
   /* [IN PROGRESS] add class 'active' to the clicked link */
   console.log('clickedElement:', clickedElement);
-  clickedElement.classList.add('active'); // Dodaj klasę 'active' do klikniętego linku
+  clickedElement.classList.add('active');
 
   /* [DONE] remove class 'active' from all articles */
   const activeArticles = document.querySelectorAll('.post.active');
