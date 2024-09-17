@@ -1,6 +1,6 @@
 'use strict'; //pokazuje błędy, np literówka w słowie counter
 
-const titleClickHandler = function(event){
+const titleClickHandler = function(){
   const clickedElement = this;
   console.log('Link was clicked!');
 
@@ -30,7 +30,7 @@ const titleClickHandler = function(event){
 
   /* add class 'active' to the correct article */
   targetArticle.classList.add('active');
-}
+};
 
 const optArticleSelector = '.post',
   optTitleSelector = '.post-title',
