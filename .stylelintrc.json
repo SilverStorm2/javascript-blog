@@ -1,8 +1,7 @@
 {
-  "extends": "stylelint-config-standard",
+  "extends": ["airbnb-base", "prettier"],
+  "plugins": ["prettier"],
   "rules": {
-    "indentation": 2,
-    "string-quotes": "single",
-    "no-empty-source": null
+    "prettier/prettier": ["error"]
   }
 }

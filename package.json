@@ -20,8 +20,6 @@
     "watch:browsersync": "browser-sync start --server --files \"css/*.css\" \"*.html\" \"js/*.js\"",
     "watch:sassprefixer": "onchange sass/*.scss -- npm run build-dev",
     "watch:js": "esw js/ --watch --changed --clear"
-  
-
   },
   "keywords": [],
   "author": "",
@@ -40,9 +38,9 @@
     "onchange": "^5.2.0",
     "postcss": "^8.2.6",
     "postcss-cli": "^8.3.1",
+    "prettier": "^3.3.3",
     "sass": "^1.44.0",
     "stylelint": "^16.9.0",
     "stylelint-config-standard": "^36.0.1"
   }
-
 }
