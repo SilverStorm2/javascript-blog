@@ -34,9 +34,9 @@ const titleClickHandler = function(){
 
 const optArticleSelector = '.post',
   optTitleSelector = '.post-title',
-  optTitleListSelector = '.titles';
-  //optArticleTagsSelector = '.post-tags .list',
-  //optArticleAuthorSelector = '.post-author';
+  optTitleListSelector = '.titles',
+  optTagsListSelector = '.tags.list',
+  optArticleTagsSelector = '.post-tags .list';
 
 function generateTitleLinks() {
   /* remove contents of titleList */
@@ -59,7 +59,7 @@ function generateTitleLinks() {
     /* create HTML of the link */
     const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
 
-    /* log the generated HTML */
+    /* log the generated HTML ?? */
     console.log('Generated link HTML:', linkHTML);
 
     /* insert link into html variable */
@@ -81,6 +81,8 @@ function generateTitleLinks() {
 generateTitleLinks();
 
 function generateTags(){
+  let allTags=[];
+
   /* find all articles */
   const articles=document.querySelectorAll(optArticleSelector);
 
@@ -88,7 +90,7 @@ function generateTags(){
   for (let article of articles){
 
     /* find tags wrapper */
-    const tagsWrapper=article.querySelector('.post-tags .list-horizontal');
+    const tagsWrapper=article.querySelector(optArticleTagsSelector);
 
     /* make html variable with empty string */
     let html='';
@@ -107,6 +109,10 @@ function generateTags(){
 
       /* add generated code to html variable */
       html += tagHtml;
+
+      if (allTags.indexOf(tagHtml)== -1){
+        allTags.push(tagHtml);
+      }
     }
     /* END LOOP: for each tag */
 
@@ -115,11 +121,12 @@ function generateTags(){
 
   /* END LOOP: for every article: */
   }
+  const tagList = document.querySelector(optTagsListSelector);
+  tagList.innerHTML = allTags.join(' ');
 }
+generateTags();
 
 /* Call the function to generate tags */
-generateTags();
-addClickListenersToTags();
 
 function tagClickHandler(event) {
   /* prevent default action for this event */
@@ -168,6 +175,8 @@ function addClickListenersToTags() {
   }
   /* END LOOP: for each link */
 }
+addClickListenersToTags();
+
 function generateAuthors() {
   /* find all articles */
   const articles = document.querySelectorAll('.post');
@@ -240,7 +249,3 @@ function addClickListenersToAuthors() {
 
 generateAuthors();
 addClickListenersToAuthors();
-
-
-
-
